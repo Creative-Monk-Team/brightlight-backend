@@ -261,7 +261,6 @@ const blogsFaqSection = require("./models/about_us_page/blogsFaq");
 const newsFaqSection = require("./models/about_us_page/newsFaq");
 const entryFaqSection = require("./models/about_us_page/expressFaq");
 const transportFaqSection = require("./models/about_us_page/transportFaq");
-const bpFaqSection = require("./models/about_us_page/bcpnpPageFaq");
 const workFaqSection = require("./models/about_us_page/workFaq");
 const pflFaqSection = require("./models/about_us_page/pflFaq");
 const visitorFaqSection = require("./models/about_us_page/visitorFaq");

@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let studyMetaSchema = mongoose.Schema(
+let studyFaqSchema = mongoose.Schema(
     {
         heading: {
           type: String,
@@ -58,5 +58,5 @@ let studyMetaSchema = mongoose.Schema(
       }
 );
 
-let studyMetaSection = mongoose.model("Study Visa Meta", studyMetaSchema);
-module.exports = studyMetaSection;
+let studyFaqSection = mongoose.model("Study Visa Faq", studyFaqSchema);
+module.exports = studyFaqSection;
