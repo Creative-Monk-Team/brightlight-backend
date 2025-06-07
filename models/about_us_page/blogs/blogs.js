@@ -1,4 +1,5 @@
 let mongoose = require("mongoose");
+
 let blogsSchema = mongoose.Schema(
   {
     blog_heading: {
@@ -13,19 +14,24 @@ let blogsSchema = mongoose.Schema(
       default:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliq",
     },
+    image: {
+      type: String, // Assuming Base64 string or image URL
+      required: false,
+      default: "", // or set a default placeholder image URL if needed
+    },
     tag_1: {
       type: String,
-      required: [false, "Please fill out this field"],
+      required: false,
       default: "Express Entry",
     },
     tag_2: {
       type: String,
-      required: [false, "Please fill out this field"],
+      required: false,
       default: "Immigration",
     },
     tag_3: {
       type: String,
-      required: [false, "Please fill out this field"],
+      required: false,
       default: "Custom Category",
     },
     metaTitle: {
@@ -36,7 +42,7 @@ let blogsSchema = mongoose.Schema(
     },
   },
   {
-    timeStamps: true,
+    timestamps: true, // fixed typo from timeStamps
   }
 );
 
