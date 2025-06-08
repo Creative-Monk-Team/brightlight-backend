@@ -6734,7 +6734,7 @@ app.put("/more-services-card/:id", async (req, res) => {
 
 
 // Create Blog
-app.post("/new-added-blogs", async (req, res) => {
+app.post("/new-added-blogs", upload.none(), async (req, res) => {
   try {
     let formData = req.body;
 
