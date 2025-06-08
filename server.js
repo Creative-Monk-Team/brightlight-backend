@@ -6733,266 +6733,105 @@ app.put("/more-services-card/:id", async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.post(
-  "/new-added-blogs",
-  upload.fields([{ name: "image", maxCount: 1 }]),
-  async (req, res) => {
-    try {
-      let formData = req.body;
-      let files = req.files;
-
-      // Convert file buffers to base64
-      for (let key in files) {
-        if (files[key]) {
-          let imgBase64 = files[key][0].buffer.toString("base64");
-          formData[key] = `data:${files[key][0].mimetype};base64,${imgBase64}`;
-        }
-      }
-
-      // Function to format date to MM/DD/YY
-      function formatDate(date) {
-        let month = String(date.getMonth() + 1).padStart(2, "0");
-        let day = String(date.getDate()).padStart(2, "0");
-        let year = String(date.getFullYear()).slice(-2);
-        return `${month}/${day}/${year}`;
-      }
-
-      // Format the date field
-      if (formData.date) {
-        // Convert to date and format
-        let date = new Date(formData.date);
-        formData.date = formatDate(date);
-      } else {
-        // Set default date if none provided
-        formData.date = formatDate(new Date());
-      }
-
-      // Save the data to MongoDB
-      let data = await newAddingBlogSection.create(formData);
-      res.status(200).json(data);
-    } catch (error) {
-      console.error(error);
-      res
-        .status(500)
-        .json({ message: "Internal Server Error", error: error.message });
-    }
-  }
-);
-
-app.get("/new-added-blogs/:id", async (req, res) => {
+// Create Blog
+app.post("/new-added-blogs", async (req, res) => {
   try {
-    let blogId = req.params.id;
-    let data = await newAddingBlogSection.findById(blogId);
-    if (data) {
-      res.status(200).json(data);
-    } else {
-      res.status(404).json({ message: "Blog not found" });
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: error.message });
-  }
-});
-
-
-app.get("/new-added-blogs/:heading", async (req, res) => {
-  try {
-    let blogHeading = req.params.heading;
-    let data = await newAddingBlogSection.findOne({ heading: blogHeading });
-    if (data) {
-      res.status(200).json(data);
-    } else {
-      res.status(404).json({ message: "Blog not found" });
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: error.message });
-  }
-});
-
-app.patch(
-  "/new-added-blogs/:id",
-  upload.fields([{ name: "image", maxCount: 1 }]),
-  async (req, res) => {
-    try {
-      let { id } = req.params;
-      let formData = req.body;
-      let files = req.files;
-
-      // Update file paths if new files are uploaded
-      for (let key in files) {
-        if (files[key]) {
-          let imgBase64 = files[key][0].buffer.toString("base64");
-          formData[key] = `data:${files[key][0].mimetype};base64,${imgBase64}`;
-        }
-      }
-
-      let updatedFeature = await newAddingBlogSection.findByIdAndUpdate(
-        id,
-        formData,
-        { new: true }
-      );
-
-      if (!updatedFeature) {
-        return res.status(404).json({ message: "Feature not found" });
-      }
-
-      res.json(updatedFeature);
-    } catch (error) {
-      console.error(error);
-      res
-        .status(500)
-        .json({ message: "Internal Server Error", error: error.message });
-    }
-  }
-);
-
-app.delete("/new-added-blogs/:id", async (req, res) => {
-  try {
-    let blogId = req.params.id;
-    let data = await newAddingBlogSection.findByIdAndDelete(blogId);
-
-    if (!data) {
-      return res.status(404).json({ message: "Blog not found" });
-    }
-
-    res.status(200).json({ message: "Blog deleted successfully" });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: error.message });
-  }
-});
-
-
-
-app.post(
-  "/new-added-blogs",
-  upload.fields([{ name: "image", maxCount: 1 }]),
-  async (req, res) => {
-    try {
-      let formData = req.body;
-      let files = req.files;
-
-      // Convert file buffers to base64
-      for (let key in files) {
-        if (files[key]) {
-          let imgBase64 = files[key][0].buffer.toString("base64");
-          formData[key] = `data:${files[key][0].mimetype};base64,${imgBase64}`;
-        }
-      }
-
-      // Format the date to 'YYYY-MM-DD'
-      if (formData.date) {
-        // Convert to date and format to 'YYYY-MM-DD'
-        let date = new Date(formData.date);
-        formData.date = date.toISOString().split("T")[0];
-      } else {
-        // Set default date if none provided
-        formData.date = new Date().toISOString().split("T")[0];
-      }
-
-      // Save the data to MongoDB
-      let data = await newAddingBlogSection.create(formData);
-      res.status(200).json(data);
-    } catch (error) {
-      console.error(error);
-      res
-        .status(500)
-        .json({ message: "Internal Server Error", error: error.message });
-    }
-  }
-);
-
-app.get("/new-added-blogs", async (request, response) => {
-  try {
-    let data = await newAddingBlogSection.find();
-    response.status(200).json(data);
-  } catch (error) {
-    console.log(error);
-    response.status(500).json({ message: error });
-  }
-});
-
-app.put("/new-added-blogs/:id", async (req, res) => {
-  try {
-    let { id } = req.params;
     let formData = req.body;
 
-    let updatedFeature = await newAddingBlogSection.findByIdAndUpdate(
-      id,
-      formData,
-      {
-        new: true,
-      }
-    );
-
-    if (!updatedFeature) {
-      return res.status(404).json({ message: "Feature not found" });
+    // Format date if not provided
+    if (!formData.date) {
+      formData.date = new Date().toISOString().split("T")[0];
     }
 
-    res.json(updatedFeature);
+    const blog = await newAddingBlogSection.create(formData);
+    res.status(200).json(blog);
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .json({ message: "Internal Server Error", error: error.message });
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
   }
 });
 
+// Get all blogs
+app.get("/new-added-blogs", async (req, res) => {
+  try {
+    const blogs = await newAddingBlogSection.find();
+    res.status(200).json(blogs);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+});
 
+// Get blog by ID
+app.get("/new-added-blogs/id/:id", async (req, res) => {
+  try {
+    const blog = await newAddingBlogSection.findById(req.params.id);
+    if (blog) {
+      res.status(200).json(blog);
+    } else {
+      res.status(404).json({ message: "Blog not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
+// Get blog by Heading
+app.get("/new-added-blogs/heading/:heading", async (req, res) => {
+  try {
+    const blog = await newAddingBlogSection.findOne({ blog_heading: req.params.heading });
+    if (blog) {
+      res.status(200).json(blog);
+    } else {
+      res.status(404).json({ message: "Blog not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
+// Update blog by ID (PUT for full update)
+app.put("/new-added-blogs/:id", async (req, res) => {
+  try {
+    const updatedBlog = await newAddingBlogSection.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!updatedBlog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+    res.json(updatedBlog);
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
+  }
+});
 
+// Partial update (PATCH)
+app.patch("/new-added-blogs/:id", async (req, res) => {
+  try {
+    const updatedBlog = await newAddingBlogSection.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!updatedBlog) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+    res.json(updatedBlog);
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error", error: error.message });
+  }
+});
 
-
-
-
-
-
-
-
-
-
-
+// Delete blog
+app.delete("/new-added-blogs/:id", async (req, res) => {
+  try {
+    const deleted = await newAddingBlogSection.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({ message: "Blog not found" });
+    }
+    res.status(200).json({ message: "Blog deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 app.get("/loveneetBgAlt", async (request, response) => {
