@@ -354,9 +354,12 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 let storage = multer.memoryStorage();
-let upload = multer({
-  storage: storage,
-  limits: { fileSize: 50 * 1024 * 1024 },
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fieldSize: 10 * 1024 * 1024, // Increase to 10MB for base64 text fields
+    fileSize: 5 * 1024 * 1024,   // Max file size for uploads
+  },
 });
 
 app.get("/", (request, response) => {
