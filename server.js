@@ -95,7 +95,6 @@ const prPathwaysCaregiver = require("./models/about_us_page/innerPages/prPathway
 const pathwaysForCaregiverSection = require("./models/about_us_page/innerPages/pathwaysForCaregiver");
 const inHomeCaregiverSection = require("./models/about_us_page/innerPages/inHomeCaregiverProgramLp");
 const skilledWorkerStreamSection = require("./models/about_us_page/innerPages/skilledWorkerStream");
-
 const bridgingOpenSection = require("./models/about_us_page/innerPages/bridgingOpenWork");
 const francophoneMobilitySection = require("./models/about_us_page/innerPages/francophoneMobility");
 const openWorkVulnerableSection = require("./models/about_us_page/innerPages/openWorkVulnerable");
@@ -207,7 +206,7 @@ const stemTargetedDrawMetaSection = require("./models/about_us_page/innerPages/m
 const studentVisaMetaSection = require("./models/about_us_page/innerPages/metas/studentVisaMeta");
 const studyPermitMinorsMetaSection = require("./models/about_us_page/innerPages/metas/studyPermitMinorsMeta");
 const superVisaMetaSection = require("./models/about_us_page/innerPages/metas/superVisaMeta");
-const temporaryResidencyMetaSection = require("./models/about_us_page/innerPages/metas/superVisaMeta");
+const temporaryResidencyMetaSection = require("./models/about_us_page/innerPages/metas/temporaryResidencyMeta");
 const temporaryResidentPermMetaSection = require("./models/about_us_page/innerPages/metas/temporaryResidentPermMeta");
 const tradeOccupationTargDrawMetaSection = require("./models/about_us_page/innerPages/metas/tradeOccupationTargDrawMeta");
 const transportOccuptionTargDrawMetaSection = require("./models/about_us_page/innerPages/metas/transportOccuptionTargDrawMeta");

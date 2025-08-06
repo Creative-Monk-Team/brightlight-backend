@@ -3,299 +3,363 @@ let superVisaSchema = mongoose.Schema(
   {
     superVisaHeading: {
       type: String,
-      default: "Super Visa",
+      default: "Canada Super Visa - 2025 Income Requirements Updated",
     },
     superVisaPara: {
       type: String,
       default:
-        "The Super Visa is a temporary visa program offered to parents and grandparents of Canadian citizens or permanent residents.",
+        "As of July 29, 2025, IRCC has officially revised the income requirements for the Canada Super Visa. If you're planning to invite your parents or grandparents to stay in Canada for an extended period, it's crucial to ensure you now meet the new minimum income thresholds.",
     },
 
+    question: {
+      type: String,
+      default: "What is a Super Visa?",
+    },
+    answer: {
+      type: String,
+      default:
+        "The Super Visa allows Canadian citizens and permanent residents to invite their parents or grandparents for long-term stays of up to 5 years per visit, with a 10-year multiple-entry validity. It's an ideal alternative to the Parents and Grandparents PR Program (PGP), especially since PGP has limited annual intake.",
+    },
 
+    SuperVisaTabHeading: {
+      type: String,
+      default: "New Super Visa Income Requirements – 2025e",
+    },
+    SuperVisaTabSubHead: {
+      type: String,
+      default:
+        "To be eligible, hosts must meet updated Low-Income Cut-Off (LICO) levels, which have increased by 3.9% based on the latest federal data.",
+    },
+    SuperVisaTabSubHead2: {
+      type: String,
+      default: "Minimum Income Requirements by Family Size:",
+    },
+
+    SupVTabHead1: {
+      type: String,
+      default: "Family Size",
+    },
+    SupVTabHead1P1: {
+      type: String,
+      default: "1 person",
+    },
+    SupVTabHead1P2: {
+      type: String,
+      default: "2 persons",
+    },
+    SupVTabHead1P3: {
+      type: String,
+      default: "3 persons",
+    },
+    SupVTabHead1P4: {
+      type: String,
+      default: "4 persons",
+    },
+    SupVTabHead1P5: {
+      type: String,
+      default: "5 persons",
+    },
+    SupVTabHead1P6: {
+      type: String,
+      default: "6 persons",
+    },
+    SupVTabHead1P7: {
+      type: String,
+      default: "7 or more",
+    },
+    SupVTabHead1P8: {
+      type: String,
+      default: "More than 7 persons, for each additional person, add",
+    },
     //
+
+    SupVTabHead2: {
+      type: String,
+      default: "2025 Minimum Necessary Gross Income",
+    },
+    SupVTabHead2P1: {
+      type: String,
+      default: "$30,526",
+    },
+    SupVTabHead2P2: {
+      type: String,
+      default: "$38,002",
+    },
+    SupVTabHead2P3: {
+      type: String,
+      default: "$46,720",
+    },
+    SupVTabHead2P4: {
+      type: String,
+      default: "$56,724",
+    },
+    SupVTabHead2P5: {
+      type: String,
+      default: "$64,336",
+    },
+    SupVTabHead2P6: {
+      type: String,
+      default: "$72,560",
+    },
+    SupVTabHead2P7: {
+      type: String,
+      default: "$80,784",
+    },
+    SupVTabHead2P8: {
+      type: String,
+      default: "$8,224",
+    },
+    SuperVisaTabFooter: {
+      type: String,
+      default:
+        "You can combine income with your spouse or common-law partner by co-signing the undertaking.",
+    },
+    //
+
+    WhoisCountedHeading: {
+      type: String,
+      default: "How to Apply",
+    },
+    WhoisCountedSubHead: {
+      type: String,
+      default:
+        "To start the application process, there are several forms and steps that you, as the applicant, will need to complete. The steps are as follows:",
+    },
+
+    wc1: {
+      type: String,
+      default: "You (the sponsor)",
+    },
+    wc2: {
+      type: String,
+      default: "Your spouse or partner",
+    },
+    wc3: {
+      type: String,
+      default: "Dependent children",
+    },
+    wc4: {
+      type: String,
+      default: "The Super Visa applicants (parents/grandparents)",
+    },
+    wc5: {
+      type: String,
+      default:
+        "Anyone you’re still financially responsible for from past sponsorships",
+    },
+    wc6: {
+      type: String,
+      default: "Children under shared custody",
+    },
+    WhoisCountedFooter: {
+      type: String,
+      default:
+        "Even if someone is no longer living with you, they may still count if you're bound by a past sponsorship agreement.",
+    },
+
     BenifitsHeading: {
-        type: String,
-        default: "Benefits of Super Visa",
-      },
- 
-      BenifitsList1: {
-        type: String,
-        default: "It allows them to visit their children or grandchildren in Canada for up to five continuous years from their first arrival, with no requirement to extend their status during this five-year stay.",
-      }, 
-      BenifitsList2: {
-        type: String,
-        default: "This is a multiple-entry visa option, granting multiple entries over up to 10 years or until the passport expires.",
-      }, 
+      type: String,
+      default: "Key Super Visa Benefits",
+    },
 
+    b1: {
+      type: String,
+      default: "Stay in Canada for up to 5 years at a time",
+    },
+
+    b2: {
+      type: String,
+      default: "Apply any time of the year (no lottery system)",
+    },
+
+    b3: {
+      type: String,
+      default: "Multiple entries for up to 10 years",
+    },
+
+    b4: {
+      type: String,
+      default: "Extendable from within Canada",
+    },
+
+    b5: {
+      type: String,
+      default: "Perfect for reuniting families long-term",
+    },
+
+    b6: {
+      type: String,
+      default: "Fast processing when all criteria are met",
+    },
     //
 
-        //
-        EligibilityHeading: {
-            type: String,
-            default: "Eligibility Criteria for Super Visa",
-          },
+    SuperVisaPgpHeading: {
+      type: String,
+      default: "Super Visa vs. PGP",
+    },
 
-          EligibilitySubHead: {
-            type: String,
-            default: "To meet the eligibility requirements for a Super Visa, you as the sponsor (child or grandchild in Canada) must:",
-          },
+    SuperVisaPgpHead1: {
+      type: String,
+      default: "Feature",
+    },
 
-          EligibilityList1: {
-            type: String,
-            default: "Be a Canadian citizen or permanent resident of Canada.",
-          }, 
-          EligibilityList2: {
-            type: String,
-            default: "Provide proof of your relationship with your parents or grandparents.",
-          }, 
+    SuperVisaPgpHead2: {
+      type: String,
+      default: "Super Visa",
+    },
 
-          EligibilityList3: {
-            type: String,
-            default: "Meet the income requirements set by the Government of Canada. Check the income requirement in the chart below:",
-          }, 
+    SuperVisaPgpHead3: {
+      type: String,
+      default: "PGP (Permanent Residency)",
+    },
 
-          EligibilityList4: {
-            type: String,
-            default: "Provide proof that you have medical insurance for your parents/grandparents from a Canadian insurance company. The insurance must meet the following criteria:",
-          }, 
-          EligibilitySub4List1: {
-            type: String,
-            default: "Valid for at least one year from the date of entry.",
-          }, 
-          EligibilitySub4List2: {
-            type: String,
-            default: "Coverage of at least $100,000.",
-          }, 
-          EligibilityList5: {
-            type: String,
-            default: "Proof that the medical insurance has been paid in full or that monthly payments have been set up.",
-          }, 
+    SuperVisaPgpHead1d1: {
+      type: String,
+      default: "Status",
+    },
 
-          ApartHeading: {
-            type: String,
-            default: "Apart from these basic requirements",
-          },
-          ApartSubHead: {
-            type: String,
-            default: "There are some additional requirements that your parents/grandparents will need to meet:",
-          },
+    SuperVisaPgpHead1d2: {
+      type: String,
+      default: "Stay duration",
+    },
 
-          ApartLi1: {
-            type: String,
-            default: "Their Super Visa application must be submitted from outside Canada.",
-          },
-          ApartLi2: {
-            type: String,
-            default: "They must pass the immigration medical exam to qualify.",
-          },
-          ApartLi3: {
-            type: String,
-            default: "They must meet the requirement to pass a security and health eligibility check.",
-          },
-          ApartLi4: {
-            type: String,
-            default: "If they are inadmissible to Canada, they do not qualify for this program.",
-          },
-        //
-        SuperVisaTabHeading: {
-            type: String,
-            default: "Super Visa Income Table",
-          },
-          SuperVisaTabSubHead: {
-            type: String,
-            default: "Minimum necessary income requirements Updated as of June 3, 2024:",
-          },
-          SuperVisaTabSubHead2: {
-            type: String,
-            default: "Low Income Cut-Off (LICO):",
-          },  
+    SuperVisaPgpHead1d3: {
+      type: String,
+      default: "Work/benefits allowed",
+    },
 
-          SupVTabHead1: {
-            type: String,
-            default: "Size of Family Unit",
-          }, 
-          SupVTabHead1P1: {
-            type: String,
-            default: "1 person (your child or grandchild)",
-          }, 
-          SupVTabHead1P2: {
-            type: String,
-            default: "2 persons",
-          }, 
-          SupVTabHead1P3: {
-            type: String,
-            default: "3 persons",
-          }, 
-          SupVTabHead1P4: {
-            type: String,
-            default: "4 persons",
-          }, 
-          SupVTabHead1P5: {
-            type: String,
-            default: "5 persons",
-          }, 
-          SupVTabHead1P6: {
-            type: String,
-            default: "6 persons",
-          }, 
-          SupVTabHead1P7: {
-            type: String,
-            default: "7 or more",
-          }, 
-          SupVTabHead1P8: {
-            type: String,
-            default: "More than 7 persons, for each additional person, add",
-          }, 
-//
+    SuperVisaPgpHead1d4: {
+      type: String,
+      default: "Processing window",
+    },
 
-          SupVTabHead2: {
-            type: String,
-            default: "Minimum Necessary Gross Income",
-          }, 
-          SupVTabHead2P1: {
-            type: String,
-            default: "$29,380",
-          }, 
-          SupVTabHead2P2: {
-            type: String,
-            default: "$36,576",
-          }, 
-          SupVTabHead2P3: {
-            type: String,
-            default: "$44,966",
-          }, 
-          SupVTabHead2P4: {
-            type: String,
-            default: "$54,594",
-          }, 
-          SupVTabHead2P5: {
-            type: String,
-            default: "$61,920",
-          }, 
-          SupVTabHead2P6: {
-            type: String,
-            default: "$69,834",
-          }, 
-          SupVTabHead2P7: {
-            type: String,
-            default: "$77,750",
-          }, 
-          SupVTabHead2P8: {
-            type: String,
-            default: "$7,916",
-          }, 
-//
-   
-HowtoApplyHeading: {
-    type: String,
-    default: "How to Apply",
-  },
-  HowtoApplySubHead: {
-    type: String,
-    default: "To start the application process, there are several forms and steps that you, as the applicant, will need to complete. The steps are as follows:",
-  },
+    SuperVisaPgpHead2d1: {
+      type: String,
+      default: "Visitor",
+    },
 
- ha1: {
-    type: String,
-    default: "Check your income requirements to ensure you meet the latest standards.",
-  },
-  ha2: {
-    type: String,
-    default: "Obtain upfront medical clearance from a doctor authorized by IRCC.",
-  },
-  ha3: {
-    type: String,
-    default: "Secure medical insurance that complies with IRCC guidelines.",
-  },
-  ha4: {
-    type: String,
-    default: "Complete all required documents for the Super Visa application.",
-  },
-  ha5: {
-    type: String,
-    default: "Submit your Super Visa application.",
-  },
-  //    
-      RefusalHeading: {
-        type: String,
-        default: "Common Reasons for Refusal",
-      },
+    SuperVisaPgpHead2d2: {
+      type: String,
+      default: "Up to 5 years/visit",
+    },
 
-      r1: {
-        type: String,
-        default: "Sponsor does not have sufficient financial support based on family size. This is a common reason for refusal because you may have miscalculated your funds based on the income chart and family size.",
-      },
-      r2: {
-        type: String,
-        default: "Immigration officer feels that your ties to your home country are not strong. This means you have not demonstrated strong connections to your home country, such as a job, family, and property.",
-      },
-      r3: {
-        type: String,
-        default: "Immigration officer feels that you will not leave Canada at the end of your stay. This means the officer believes you have intentions to immigrate to Canada permanently.",
-      },
-      r4: {
-        type: String,
-        default: "You have previous refusals from IRCC that have not been explained in the current application submission. This means you have prior applications that were denied and you have not provided a satisfactory explanation for those refusals.",
-      },
-      r5: {
-        type: String,
-        default: "Your medical insurance coverage was inadequate according to the set requirements. This means the insurance policy you provided does not meet the minimum coverage standards required for Super Visa holders.",
-      },
-      r6: {
-        type: String,
-        default: "Documents you provided were either incomplete or inaccurate. This means the documents you submitted were not complete or contained errors, which may lead to refusal and even misrepresentation charges.",
-      },  
+    SuperVisaPgpHead2d3: {
+      type: String,
+      default: "No",
+    },
 
-      rPara1: {
-        type: String,
-        default: "If you have received a refusal for any of the reasons mentioned above, do not worry. With over a decade of experience, we specialize in previously refused cases. We have got approvals for clients who had multiple previous refusals. We achieve this with a tailored approach to your specific case, addressing each concern that the officer has listed in previous refusals. We use case law and find similar cases to your circumstances that had positive results, and we use them as precedents in cases we work on. This is why we have a high success rate.",
-      },  
+    SuperVisaPgpHead2d4: {
+      type: String,
+      default: "Year-round",
+    },
 
-      rPara2: {
-        type: String,
-        default: "At Brightlight Immigration, we have a dedicated team of visa application specialists who can assist you from the start of the application process all the way to obtaining your visa. Start your process now.",
-      },  
+    SuperVisaPgpHead3d1: {
+      type: String,
+      default: "Permanent Resident",
+    },
 
-    WhyChooseUsHeading: {
+    SuperVisaPgpHead3d2: {
+      type: String,
+      default: "Unlimited",
+    },
+
+    SuperVisaPgpHead3d3: {
+      type: String,
+      default: "Yes",
+    },
+
+    SuperVisaPgpHead3d4: {
+      type: String,
+      default: "Limited annual intake via lottery",
+    },
+
+    DocstoProveHeading: {
+      type: String,
+      default: "Documents to Prove Income",
+    },
+
+    DocstoProvePara: {
+      type: String,
+      default:
+        "To meet the financial criteria, you may submit:",
+    },
+
+    dtp1: {
+      type: String,
+      default: "CRA Notice of Assessment (NOA)"
+    },
+
+    dtp2: {
+      type: String,
+      default: "T4 and T1 slips"
+    },
+
+    dtp3:{
+      type: String,
+      default: "Pay stubs (last 12 months)"
+    },
+
+    dtp4:{
+      type: String,
+      default: "Employer confirmation letter"
+    },
+
+    dtp5: {
+      type: String,
+      default: "Bank statements"
+    }, 
+
+    dtp6: {
+      type: String,
+      default: "Proof of business or self-employment income"
+    },
+
+    dtp7: {
+      type: String,
+      default: "Pension or investment statements"
+    },
+    DocstoProveFooter:{
+      type: String,
+      default: "Brightlight will help you determine the best documentation for your profile."
+    },
+
+    NotSureHeading01: {
       type: String,
       default: "Why Choose Us?",
     },
-
-    WhyChooseUsPara: {
+    NotSurePara: {
+      type: String,
+      default: "Brightlight Immigration will assess your eligibility, guide you through the paperwork, and ensure your Super Visa application is accurate, complete, and IRCC-compliant."
+    }, 
+    ns1: {
       type: String,
       default:
-        "At Brightlight Immigration, we provide expert guidance and support throughout your immigration journey. Our dedicated team is committed to achieving the best possible outcomes for our clients.",
+        "100% transparency ",
     },
-    WhyChooseUsHeading01: {
+    ns2: {
       type: String,
       default:
-        "Why Choose Us?",
+        "Tailored consultation",
     },
-    wcu1: {
+    ns3: {
       type: String,
       default:
-        "<strong>Experienced Team:</strong> Over a decade of experience in handling Immigration applications with a high success rate. ",
-    },
-    wcu2: {
-      type: String,
-      default:
-        "<strong>Tailored Approach:</strong> Personalized services and strategies based on your specific case.",
-    },
-    wcu3: {
-      type: String,
-      default:
-        "<strong>High Success Rate:</strong> Proven track record using case law and precedents for positive results.",
-    },
-    wcu4: {
-      type: String,
-      default:
-        "<strong>Comprehensive Support:</strong> Assistance from the start of the application process to obtaining your PR.",
+        "Application prepared by regulated professionals",
     },
 
+    TalktoSvHeading: {
+      type: String,
+      default: "Talk to a Super Visa Expert Today"
+    },
+
+    TalktoSvPara1: {
+      type: String,
+      default: "Whether you're just exploring your options or ready to apply, our team can walk you through every detail."
+    },
+    
     faq_heading: {
       type: String,
-      default:
-        "FAQ's Made Simple",
+      default: "FAQ's Made Simple",
     },
     q1: {
       type: String,
@@ -309,8 +373,7 @@ HowtoApplyHeading: {
     },
     q2: {
       type: String,
-      default:
-        "  I have a visitor visa. Can I convert it to a super visa? ",
+      default: "  I have a visitor visa. Can I convert it to a super visa? ",
     },
     qa2: {
       type: String,
@@ -330,8 +393,7 @@ HowtoApplyHeading: {
     },
     q4: {
       type: String,
-      default:
-        " Can I include my dependents on a Super Visa application? ",
+      default: " Can I include my dependents on a Super Visa application? ",
     },
     qa4: {
       type: String,
@@ -341,18 +403,16 @@ HowtoApplyHeading: {
 
     q5: {
       type: String,
-      default:
-        " Can you work on a Super visa in Canada?",
+      default: " Can you work on a Super visa in Canada?",
     },
     qa5: {
       type: String,
       default:
         "No, the Super Visa does not allow for work authorization in Canada. It is solely intended for parents and grandparents of Canadian citizens or permanent residents to visit their family members in Canada, focusing on family reunification rather than employment opportunities. ",
-     },
+    },
     q6: {
       type: String,
-      default:
-        "Can I apply for a Super Visa while in Canada? ",
+      default: "Can I apply for a Super Visa while in Canada? ",
     },
     qa6: {
       type: String,
@@ -373,47 +433,39 @@ HowtoApplyHeading: {
 
     q8: {
       type: String,
-      default:
-        "Can I visit other countries while holding a Super Visa? ",
+      default: "Can I visit other countries while holding a Super Visa? ",
     },
     qa8: {
       type: String,
       default:
         " Yes, holding a Super Visa does not restrict you from visiting other countries while you are in possession of a valid passport and any required visas for those countries. However, it is important to note that you should comply with the immigration rules and requirements of each country you plan to visit, as they may have their own visa regulations and entry restrictions.  ",
     },
-    
+
     q9: {
       type: String,
-      default:
-        " ",
+      default: " ",
     },
     qa9: {
       type: String,
-      default:
-        "  ",
+      default: "  ",
     },
     q10: {
       type: String,
-      default:
-        " ",
+      default: " ",
     },
     qa10: {
       type: String,
-      default:
-        " ",
+      default: " ",
     },
     show_testimonials: {
       type: String,
-      default: "N"
-    }
+      default: "N",
+    },
   },
   {
     timeStamps: true,
   }
 );
 
-let superVisaSection = mongoose.model(
-  "Super Visa program",
-  superVisaSchema
-);
+let superVisaSection = mongoose.model("Super Visa program", superVisaSchema);
 module.exports = superVisaSection;
