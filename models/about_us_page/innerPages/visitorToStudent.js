@@ -3,8 +3,8 @@ let visitorToStudentSchema = mongoose.Schema(
   {
     visitorToStudentHeading: {
       type: String,
-      default: "Visitor to Student progam",
-    },
+      default: "Visitor to Student Program (Updated July, 2025) ",
+    },  
     visitorToStudentPara: {
       type: String,
       default:
@@ -61,7 +61,7 @@ let visitorToStudentSchema = mongoose.Schema(
     },
     e2: {
       type: String,
-      default: "You have taken a prerequisite course inside Canada.",
+      default: "You have a valid Provincial Attestation Letter (PAL) Mandatory",
     },
     e3: {
         type: String,
@@ -166,13 +166,17 @@ let visitorToStudentSchema = mongoose.Schema(
       },
       ha3: {
         type: String,
-        default: "Apply to a Public/Private College..",
+        default: "Apply for a Provincial Attestation Letter (PAL) Mandatory"
       },
       ha4: {
         type: String,
-        default: "Get your documents and submit your application.",
+        default: "Apply to a Public/Private College..",
       },
       ha5: {
+        type: String,
+        default: "Get your documents and submit your application.",
+      },
+      ha6: {
         type: String,
         default: "Obtain your Study Permit.",
       },
