@@ -118,12 +118,12 @@ let superVisaSchema = mongoose.Schema(
 
     WhoisCountedHeading: {
       type: String,
-      default: "How to Apply",
+      default: "Who Is Counted in Your Family Size?",
     },
     WhoisCountedSubHead: {
       type: String,
       default:
-        "To start the application process, there are several forms and steps that you, as the applicant, will need to complete. The steps are as follows:",
+        "Your total household size includes:",
     },
 
     wc1: {
@@ -325,7 +325,7 @@ let superVisaSchema = mongoose.Schema(
 
     NotSureHeading01: {
       type: String,
-      default: "Why Choose Us?",
+      default: "Not Sure If You Qualify? Let Us Help.",
     },
     NotSurePara: {
       type: String,
@@ -364,7 +364,7 @@ let superVisaSchema = mongoose.Schema(
     q1: {
       type: String,
       default:
-        " What is the difference between a visitor visa and a super visa? ",
+        "What is the difference between a visitor visa and a super visa?",
     },
     qa1: {
       type: String,
