@@ -329,7 +329,6 @@ let visitorToStudentSchema = mongoose.Schema(
       type: String,
       default: "Transport ",
     },
-
     ImportantPointNoteHeading: {
       type: String,
       default: "Important Points to Remember:",
