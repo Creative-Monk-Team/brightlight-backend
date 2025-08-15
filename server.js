@@ -3949,7 +3949,7 @@ app.put("/bridgingOpenWork/:id", async (req, res) => {
 // francophone-routes
 
 // GET — always return one doc; auto-create with defaults if empty
-router.get("/francoMob", async (req, res) => {
+app.get("/francoMob", async (req, res) => {
   try {
     let doc = await Francophone.findOne();
     if (!doc) {
@@ -3964,7 +3964,7 @@ router.get("/francoMob", async (req, res) => {
 });
 
 // POST — create or replace (upsert) the single doc
-router.post("/francoMob", async (req, res) => {
+app.post("/francoMob", async (req, res) => {
   try {
     const doc = await Francophone.findOneAndUpdate(
       {},                        // match the singleton doc
@@ -3984,7 +3984,7 @@ router.post("/francoMob", async (req, res) => {
 });
 
 // PUT — update by id (kept for flexibility)
-router.put("/francoMob/:id", async (req, res) => {
+app.put("/francoMob/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const updated = await Francophone.findByIdAndUpdate(id, req.body, {
