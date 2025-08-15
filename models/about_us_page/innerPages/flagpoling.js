@@ -9,7 +9,7 @@ const flagpolingSchema = mongoose.Schema(
 
     heading: {
       type: String,
-      default: "Flagpoling – Quick and Legal Re-Entry for Permit Renewal",
+      default: "Flagpoling",
     },
 
     aboutHeading: {
@@ -19,7 +19,7 @@ const flagpolingSchema = mongoose.Schema(
     aboutPara: {
       type: String,
       default:
-        "Flagpoling is a legal method to exit and re-enter Canada (without entering the U.S.) to update your immigration status. It’s commonly used for renewing temporary residence permits or finalizing permanent residency at a port of entry.",
+        "Flagpoling is a legal way to exit and re-enter Canada without crossing into the USA to change or extend a valid status. It's often used to renew temporary residence status, like study or work permits, or to finalize permanent residency. While temporary resident visa holders can apply online or via paper, these applications can take weeks or months. To save time, some choose to go to a port of entry for quicker processing.",
     },
 
     benefitsHeading: {
@@ -29,10 +29,9 @@ const flagpolingSchema = mongoose.Schema(
     benefitsList: {
       type: [String],
       default: [
-        "Faster than online or paper-based applications (which take weeks/months)",
-        "Simple process—present your passport and documents at the port of entry",
-        "Often processed on the spot by CBSA officers",
-        "CBSA may consider humanitarian or compassionate factors during evaluation",
+        "Flagpoling is a time-saving alternative to applying for a work or study permit through online or paper applications, which can take weeks or even months to process, often longer than the times mentioned on the IRCC website.",
+        "With flagpoling, you do not need to gather extensive documentation or complete complex and lengthy forms. Instead, candidates can present their passport and supporting documents directly to a Canada Border Services Agency (CBSA) officer. You attend an interview and can often obtain the new permit on the spot.",
+        "In many cases, CBSA officers adopt a more humane approach than IRCC officers and may consider humanitarian and compassionate grounds when approving applications.",
       ],
     },
 
@@ -43,11 +42,11 @@ const flagpolingSchema = mongoose.Schema(
     eligibilityList: {
       type: [String],
       default: [
-        "You must currently hold a valid visitor, study, or work permit",
-        "If your status has expired, you must have applied for an extension online and carry proof",
-        "Do not attempt flagpoling if your status is expired and you’ve only applied for restoration",
-        "You must meet all IRCC requirements for the new permit you are applying for",
-        "Carry original documents when attending your interview with CBSA",
+        "You must currently hold a valid visitor, study, or work permit.",
+        "If your status has expired, you must have applied for an extension online and provide proof of your application submission and receipt.",
+        "Do not attempt flagpoling if you are out of status or have applied for restoration of your status.",
+        "You must meet the requirements for the new permit that you are requesting, in accordance with IRCC guidelines.",
+        "It is recommended that you carry original documents with you during your interview with the Canada Border Services Agency officer.",
       ],
     },
 
@@ -58,7 +57,7 @@ const flagpolingSchema = mongoose.Schema(
     importantTipPara: {
       type: String,
       default:
-        "While flagpoling is convenient, there are risks like being denied entry at either border, potentially resulting in removal to your home country. Be prepared for detailed interviews with border officers.",
+        "Flagpoling can be useful if approached with careful preparation and proper documentation. It's important to be aware of its risks, such as the potential denial of entry at US and Canadian borders, which could result in being sent back to your home country. This process often involves a detailed interview with a US immigration officer or CBSA border officer.",
     },
 
     ctaHeading: {
@@ -68,7 +67,7 @@ const flagpolingSchema = mongoose.Schema(
     ctaPara: {
       type: String,
       default:
-        "To minimize risks and ensure success, hire a Regulated Canadian Immigration Consultant (RCIC). Brightlight Immigration can represent you at any Point of Entry in the Lower Mainland, BC, offering guidance and support throughout the process.",
+        "To minimize risks and ensure a smooth flagpoling experience, we strongly recommend hiring a representative from a Regulated Canadian Immigration Consultant (RCIC). An RCIC can guide you on the required documents for flagpoling and effectively prepare you for the Port of Entry and interviews with immigration officers. Brightlight Immigration is here to represent you at any Point of Entry in the Lower Mainland, British Columbia. Our experienced consultants will ensure you have the necessary documentation, provide personalized guidance, and assist you in effectively communicating your case to immigration officers.",
     },
 
     bookAppointment: {
@@ -83,10 +82,10 @@ const flagpolingSchema = mongoose.Schema(
     whyChooseUsList: {
       type: [String],
       default: [
-        "Experienced representation at ports of entry",
-        "Personalized guidance and documentation support",
-        "Preparation for interviews with CBSA officers",
-        "Proven success and client satisfaction",
+        "Representation at any Point of Entry in the Lower Mainland, British Columbia",
+        "Experienced consultants to ensure necessary documentation",
+        "Personalized guidance for your flagpoling process",
+        "Assistance in effectively communicating your case to immigration officers",
       ],
     },
 
@@ -120,31 +119,31 @@ const flagpolingSchema = mongoose.Schema(
         {
           question: "Is Flagpoling Legal in Canada?",
           answer:
-            "Yes, it is a legal method recognized by IRCC for certain immigration-related updates.",
+            "Yes, flagpoling is a legal procedure in Canada that entails leaving the country and then re-entering without crossing into the United States. This process is sanctioned by Immigration, Refugees and Citizenship Canada (IRCC), making it a completely legal option for certain immigration-related matters.",
         },
         {
           question: "What Are the Risks of Flagpoling?",
           answer:
-            "You may be denied entry into Canada or the U.S. In rare cases, you may be removed from Canada. Interviews with CBSA or U.S. border officials are usually required.",
+            "While flagpoling is a legal activity, it does come with inherent risks. Individuals may face the possibility of being denied entry into both the United States and Canada. In some cases, this could lead to being removed from Canada and sent back to your home country. Additionally, flagpoling often requires going through a detailed interview process with a U.S. immigration officer or a border officer from the Canada Border Services Agency (CBSA).",
         },
         {
           question: "Do I Need a U.S. Visa to Flagpole?",
-          answer: "No, a U.S. visitor visa is not required to flagpole.",
+          answer: "No, a visitor visa for the United States is not required to participate in flagpoling.",
         },
         {
           question: "Can I Flagpole if I Am Out of Status?",
           answer:
-            "No. It's highly discouraged. You must have valid or implied status before flagpoling.",
+            "It is strongly discouraged to flagpole without valid or implied status in Canada. It is advisable to have your immigration status resolved before attempting flagpoling.",
         },
         {
           question: "Do I Need to Make an Appointment to Flagpole?",
           answer:
-            "Yes, some border points in the Lower Mainland require appointments. Check with our office for current guidelines.",
+            "Appointment requirements for flagpoling can change frequently. Most border crossings in the Lower Mainland may require you to schedule an appointment for the flagpoling process. For the most current information, it is best to contact our office at 604-503-3734.",
         },
         {
           question: "What Documents Are Required to Flagpole?",
           answer:
-            "Documents depend on your situation (work permit, study permit, etc.). Contact our office for a tailored checklist.",
+            "The documents needed for flagpoling can vary depending on the specific purpose, such as applying for a work permit, a visitor record, or extending a study or work permit. To obtain a personalized checklist of the necessary documents tailored to your situation, please reach out to our office at 604-503-3734.",
         },
       ],
     },
