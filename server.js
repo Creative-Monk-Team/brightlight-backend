@@ -3951,9 +3951,9 @@ app.put("/bridgingOpenWork/:id", async (req, res) => {
 // GET — always return one doc; auto-create with defaults if empty
 app.get("/francoMob", async (req, res) => {
   try {
-    let doc = await Francophone.findOne();
+    let doc = await francophoneMobilitySection.findOne();
     if (!doc) {
-      doc = await Francophone.create({}); // triggers schema defaults
+      doc = await francophoneMobilitySection.create({}); // triggers schema defaults
     }
     // Frontend expects an array
     res.status(200).json([doc]);
@@ -3966,7 +3966,7 @@ app.get("/francoMob", async (req, res) => {
 // POST — create or replace (upsert) the single doc
 app.post("/francoMob", async (req, res) => {
   try {
-    const doc = await Francophone.findOneAndUpdate(
+    const doc = await francophoneMobilitySection.findOneAndUpdate(
       {},                        // match the singleton doc
       { $set: req.body || {} },  // apply incoming fields
       {
@@ -3987,7 +3987,7 @@ app.post("/francoMob", async (req, res) => {
 app.put("/francoMob/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const updated = await Francophone.findByIdAndUpdate(id, req.body, {
+    const updated = await francophoneMobilitySection.findByIdAndUpdate(id, req.body, {
       new: true,
       runValidators: true,
     });
