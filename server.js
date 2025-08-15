@@ -3946,45 +3946,59 @@ app.put("/bridgingOpenWork/:id", async (req, res) => {
 
 ////
 
-app.get("/francoMob", async (request, response) => {
+// francophone-routes
+
+// GET — always return one doc; auto-create with defaults if empty
+router.get("/francoMob", async (req, res) => {
   try {
-    let data = await francophoneMobilitySection.find();
-    response.status(200).json(data);
-  } catch (error) {
-    console.log(error);
-    response.status(500).json({ message: error });
+    let doc = await Francophone.findOne();
+    if (!doc) {
+      doc = await Francophone.create({}); // triggers schema defaults
+    }
+    // Frontend expects an array
+    res.status(200).json([doc]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
   }
 });
 
-app.post("/francoMob", async (request, response) => {
+// POST — create or replace (upsert) the single doc
+router.post("/francoMob", async (req, res) => {
   try {
-    let data = await francophoneMobilitySection.create(request.body);
-    response.status(200).json(data);
-  } catch (error) {
-    console.log(error);
-    response.status(500).json({ message: error });
-  }
-});
-
-app.put("/francoMob/:id", async (req, res) => {
-  try {
-    let { id } = req.params;
-    let updatedData = await francophoneMobilitySection.findByIdAndUpdate(
-      id,
-      req.body,
+    const doc = await Francophone.findOneAndUpdate(
+      {},                        // match the singleton doc
+      { $set: req.body || {} },  // apply incoming fields
       {
         new: true,
+        upsert: true,
+        setDefaultsOnInsert: true,
+        runValidators: true,
       }
     );
-    if (!updatedData) {
-      return res.status(404).json({ message: "Data not found" });
-    }
-    res.status(200).json(updatedData);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: error.message });
+    res.status(200).json(doc);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
   }
 });
+
+// PUT — update by id (kept for flexibility)
+router.put("/francoMob/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updated = await Francophone.findByIdAndUpdate(id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!updated) return res.status(404).json({ message: "Data not found" });
+    res.status(200).json(updated);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+});
+
 
 ////
 
