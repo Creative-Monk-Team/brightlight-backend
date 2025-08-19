@@ -144,7 +144,7 @@ const stemTargetedDrawSection = require("./models/about_us_page/innerPages/stemT
 const tradeOccupationTargDrawSection = require("./models/about_us_page/innerPages/tradeOccupationTargDraw");
 const pilotProgramSection = require("./models/about_us_page/innerPages/pilotProgram");
 const agriFoodPilotSection = require("./models/about_us_page/innerPages/agriFoodPilotProg");
-
+const RCIPSection = require("./models/about_us_page/innerPages/rcip");
 const rNIPSection = require("./models/about_us_page/innerPages/rNIP");
 const spouseCommLawSponSection = require("./models/about_us_page/innerPages/spouseCommLawSpon");
 const agricultAndAgriFoodOccuSection = require("./models/about_us_page/innerPages/agricultAndAgriFoodOccu");
@@ -5918,6 +5918,43 @@ app.put("/agiFoodPilotProgram/:id", async (req, res) => {
         new: true,
       }
     );
+    if (!updatedData) {
+      return res.status(404).json({ message: "Data not found" });
+    }
+    res.status(200).json(updatedData);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+});
+///
+
+app.get("/rcip-page", async (request, response) => {
+  try {
+    let data = await RCIPSection.find();
+    response.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ message: error });
+  }
+});
+
+app.post("/rcip-page", async (request, response) => {
+  try {
+    let data = await RCIPSection.create(request.body);
+    response.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ message: error });
+  }
+});
+
+app.put("/rcip-page/:id", async (req, res) => {
+  try {
+    let { id } = req.params;
+    let updatedData = await RCIPSection.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
     if (!updatedData) {
       return res.status(404).json({ message: "Data not found" });
     }
