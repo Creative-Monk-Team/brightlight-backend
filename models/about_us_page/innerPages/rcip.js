@@ -214,5 +214,5 @@ const rcipSchema = mongoose.Schema(
   }
 );
 
-const RCIP = mongoose.model("RCIP Program", rcipSchema);
-module.exports = RCIP;
+const RCIPSection = mongoose.model("RCIP Program", rcipSchema);
+module.exports = RCIPSection;
