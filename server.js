@@ -132,7 +132,7 @@ const canadianExperienceClassSection = require("./models/about_us_page/innerPage
 const federalSkillTradesProgSection = require("./models/about_us_page/innerPages/federalSkillTradesProg");
 const federalSkillWorkerProgSection = require("./models/about_us_page/innerPages/federalSkillWorkerProg");
 const frenchTargetedDrawSection = require("./models/about_us_page/innerPages/frenchTargetedDraw");
-
+const educationCategorySection = require("./models/about_us_page/innerPages/educationCategory");
 const healthAuthorityStreamSection = require("./models/about_us_page/innerPages/healthAuthorityStream");
 const entryLevelSemiSkilledSection = require("./models/about_us_page/innerPages/entryLevelSemiSkilled");
 const internationalPostGraduateProgramSection = require("./models/about_us_page/innerPages/internationalPostGraduateProgram");
@@ -5929,13 +5929,73 @@ app.put("/agiFoodPilotProgram/:id", async (req, res) => {
 });
 ///
 
-app.get("/rcip-page", async (request, response) => {
+app.get("/educationCategory", async (request, response) => {
   try {
-    let data = await RCIPSection.find();
+    let data = await educationCategorySection.find();
+
+    // Check if the data array is empty
+    if (data.length === 0) {
+      console.log("No data found, creating default document.");
+      // Create a new document with default values from the schema
+      const newDoc = await educationCategorySection.create({}); 
+      data = [newDoc]; // Wrap the single document in an array to maintain consistency
+    }
+    
+    console.log("Data fetched successfully:", data);
     response.status(200).json(data);
   } catch (error) {
     console.log(error);
-    response.status(500).json({ message: error });
+    response.status(500).json({ message: error.message });
+  }
+});
+
+app.post("/educationCategory", async (request, response) => {
+  try {
+    let data = await educationCategorySection.create(request.body);
+    response.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ message: error.message });
+  }
+});
+
+app.put("/educationCategory/:id", async (req, res) => {
+  try {
+    let { id } = req.params;
+    let updatedData = await educationCategorySection.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    if (!updatedData) {
+      return res.status(404).json({ message: "Data not found" });
+    }
+    res.status(200).json(updatedData);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+///
+
+
+app.get("/rcip-page", async (request, response) => {
+  try {
+    let data = await RCIPSection.find();
+    
+    // Check if the data array is empty
+    if (data.length === 0) {
+      console.log("No data found, creating default document.");
+      // Create a new document with default values from the schema
+      const newDoc = await RCIPSection.create({}); 
+      data = [newDoc]; // Wrap the single document in an array to maintain consistency
+    }
+    
+    console.log("Data fetched successfully:", data);
+    response.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ message: error.message });
   }
 });
 
@@ -5945,7 +6005,7 @@ app.post("/rcip-page", async (request, response) => {
     response.status(200).json(data);
   } catch (error) {
     console.log(error);
-    response.status(500).json({ message: error });
+    response.status(500).json({ message: error.message });
   }
 });
 
