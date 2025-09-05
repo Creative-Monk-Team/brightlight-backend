@@ -1,6 +1,26 @@
 let mongoose = require("mongoose");
 let additionalDocumentSchema = mongoose.Schema(
   {
+    metaTitle: {
+      type: String,
+      default: "Brightlight Immigration",
+    },
+    metaDesc: {
+      type: String,
+      default: "Brightlight Immigration",
+    },
+    metaOgTitle: {
+      type: String,
+      default: "Brightlight Immigration",
+    },
+    metaOgDesc: {
+      type: String,
+      default: "Brightlight Immigration",
+    },
+    metaKeywords: {
+      type: String,
+      default: "Brightlight Immigration",
+    },
     AdditionalDocumentHeading: {
       type: String,
       default: "Reply to Additional Document Request",
