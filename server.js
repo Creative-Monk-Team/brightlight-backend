@@ -5767,8 +5767,6 @@ app.get("/educationCategory", async (request, response) => {
       const newDoc = await educationCategorySection.create({}); 
       data = [newDoc]; // Wrap the single document in an array to maintain consistency
     }
-    
-    console.log("Data fetched successfully:", data);
     response.status(200).json(data);
   } catch (error) {
     console.log(error);
